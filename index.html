@@ -11,7 +11,50 @@
   </head>
   <body class="top">
     <div class="cv-parent">
-      <div class="cv-create">A</div>
+      <div class="cv-create">
+        <h1 class="builder">CV Builder</h1>
+        <div class="control">
+          <button class="btn">Edit</button>
+          <button class="btn">Erase</button>
+          <button class="btn">Load Sample</button>
+        </div>
+        <div class="edit">
+          <div class="personal list-item">
+            <h3 class="title">Personal Details</h3>
+            <label for="name">Full Name</label>
+            <input type="text" name="name" id="name" />
+
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" />
+
+            <label for="summary">Summary</label>
+
+            <textarea name="summary" id="summary" rows="3"></textarea>
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" />
+
+            <label for="phone">Phone</label>
+            <input type="tel" name="phone" id="phone" />
+
+            <label for="site">Web Site</label>
+            <input type="text" name="site" id="site" />
+
+            <label for="address">Address</label>
+            <input type="text" name="address" id="address" />
+
+            <label for="avatar">Avatar</label>
+            <input type="file" name="avatar" id="avatar" />
+            <button class="btn">Save Changes</button>
+          </div>
+        </div>
+        <div class="personalize"></div>
+        <div class="control-fixed">
+          <button class="btn">Personalize</button>
+          <button class="btn">Save Drafts</button>
+          <button class="btn">Save as PDF</button>
+        </div>
+      </div>
       <div class="cv-show-wrapper">
         <div class="cv-show">
           <div class="cv-child person">

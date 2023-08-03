@@ -1,0 +1,112 @@
+.cv-create {
+  padding: 20px 20px;
+  h1.builder {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .control {
+    display: flex;
+    justify-content: space-between;
+    .btn {
+      background-color: #187ff5;
+      padding: 6px 20px;
+      margin: 3px;
+      //   box-shadow: 0px 0px 5px 5px #0c410749;
+      color: #fff;
+      font-weight: 700;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border: 1px solid #187ff5;
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: #fff;
+        color: #187ff5;
+        transition: all 0.2s;
+      }
+    }
+  }
+}
+
+.control-fixed {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  .btn {
+    background-color: #187ff5;
+    padding: 6px 20px;
+    margin: 3px;
+    //   box-shadow: 0px 0px 5px 5px #0c410749;
+    color: #fff;
+    font-weight: 700;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid #187ff5;
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: #fff;
+      color: #187ff5;
+      transition: all 0.2s;
+    }
+  }
+}
+
+.edit {
+  .list-item {
+    margin-top: 20px;
+    h3.title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      width: 100%;
+      border-bottom: 1px solid #0c410749;
+      margin-bottom: 10px;
+    }
+    label,
+    input,
+    button,
+    textarea {
+      display: block;
+    }
+    input,
+    button,
+    textarea {
+      width: 100%;
+
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    input,
+    textarea {
+      background-color: transparent;
+      border: 1px solid #0c410749;
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        transition: background-color 5000000s ease-in-out 0s;
+      }
+    }
+    button {
+      margin-top: 10px;
+      text-transform: uppercase;
+      font-weight: 700;
+      background-color: #187ff5;
+      padding: 6px 20px;
+      color: #fff;
+      border: 1px solid #187ff5;
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: #fff;
+        color: #187ff5;
+        transition: all 0.2s;
+      }
+    }
+  }
+}
