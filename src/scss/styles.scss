@@ -1,2 +1,183 @@
-// Import all of Bootstrap's CSS
-@import "~bootstrap/scss/bootstrap";
+@import "./reset";
+@import "./variables";
+
+body {
+  background-color: #302f2e49;
+}
+.cv-parent {
+  width: 100%;
+  height: 100vh;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: minmax(300px, 500px) minmax(700px, 1100px);
+
+  column-gap: 20px;
+}
+
+.cv-create {
+  grid-column: 1/2;
+  box-shadow: 0px 0px 10px 10px #0c410749;
+}
+.cv-show-wrapper {
+  grid-column: 2/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.cv-show {
+  max-width: 800px;
+  height: 1000px;
+  overflow-y: auto;
+  background-color: white;
+
+  box-shadow: 0px 0px 10px 10px #0c410749;
+
+  grid-template-columns: 3fr 1fr;
+  column-gap: 40px;
+  grid-template-rows: auto;
+  grid-template-areas: "person person" "eduEx others";
+  display: grid;
+  align-content: start;
+}
+
+.top .person {
+  border-bottom: 2px solid #0c410749;
+}
+.right .person {
+  border-right: 2px solid #0c410749;
+}
+
+.person {
+  grid-area: person;
+  grid-template-columns: 3fr 1fr;
+  column-gap: 20px;
+  grid-template-rows: auto;
+  grid-template-areas: "info image" "contact contact";
+  display: grid;
+
+  padding: 30px 20px 15px 40px;
+  margin-bottom: 10px;
+  // align-items: start;
+  align-content: start;
+
+  &-info {
+    grid-area: info;
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+  }
+  &-img {
+    grid-area: image;
+    width: 120px;
+    height: 120px;
+    border: 1px solid #0c410749;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    align-self: start;
+  }
+  &-contact {
+    margin-top: 20px;
+    grid-area: contact;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    font-size: 0.75rem;
+  }
+}
+
+.eduEx-wrapper {
+  grid-area: eduEx;
+  padding: 0px 20px 15px 40px;
+}
+.eduEx {
+  margin: 10px 0;
+  h2.title {
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 700;
+    width: 100%;
+    border-bottom: 1px solid #0c410749;
+  }
+
+  &-list {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    &-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      .title-sub {
+        h3 {
+          font-size: 0.9rem;
+          font-weight: 700;
+        }
+        em {
+          // font-size: 1.1rem;
+        }
+      }
+    }
+    .result {
+      font-style: italic;
+    }
+    .summary {
+      margin-top: 10px;
+      padding-left: 20px;
+
+      li {
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0.3rem;
+          left: -15px;
+          width: 0.5rem;
+          height: 0.5rem;
+          background-color: #0c410749;
+        }
+      }
+    }
+  }
+}
+.others {
+  grid-area: others;
+  margin-top: 10px;
+
+  &-entry {
+    margin-bottom: 20px;
+  }
+  h3.title {
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 700;
+    width: 100%;
+    border-bottom: 1px solid #0c410749;
+  }
+  .summary {
+    margin-top: 10px;
+    padding-left: 20px;
+
+    li {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0.3rem;
+        left: -15px;
+        width: 0.5rem;
+        height: 0.5rem;
+        background-color: #0c410749;
+      }
+    }
+  }
+}
