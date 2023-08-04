@@ -58,14 +58,84 @@
 }
 
 .edit {
+  padding-bottom: 50px;
+  // Show only first 2 entry of Education, Experience list.
+  .list-item > div {
+    display: none;
+  }
+  .list-item > div:nth-child(2),
+  .list-item > div:nth-child(3),
+  .list-item > h3:first-child {
+    display: block;
+  }
+  //  Show only first 2 entry of Education, Experience list. ENDS
+  a.see,
+  a.notSee,
+  a.up,
+  a.down,
+  button,
+  .btn {
+    cursor: pointer;
+  }
+  .expand {
+    margin-right: 20px;
+  }
+  .entry.hide {
+    height: 30px;
+    overflow: hidden;
+
+    .down {
+      display: inline-block;
+    }
+
+    .up {
+      display: none;
+    }
+  }
+  .entry.show {
+    height: auto;
+    overflow: hidden;
+
+    .down {
+      display: none;
+    }
+
+    .up {
+      display: inline-block;
+    }
+  }
+  .entry {
+    .title {
+      display: flex;
+      justify-content: space-between;
+      span {
+        color: #187ff5;
+      }
+    }
+  }
+  .list-item:not(:last-of-type) {
+    padding-bottom: 20px;
+    border-bottom: 5px dashed #187ff5;
+  }
   .list-item {
     margin-top: 20px;
+
     h3.title {
       font-size: 1.1rem;
       font-weight: 700;
       width: 100%;
       border-bottom: 1px solid #0c410749;
       margin-bottom: 10px;
+    }
+    h3.entry-title {
+      font-size: 0.9rem;
+    }
+    h3.personalDetails {
+      display: flex;
+      justify-content: space-between;
+    }
+    label {
+      font-weight: 700;
     }
     label,
     input,
@@ -81,8 +151,24 @@
       border-top-right-radius: 5px;
       border-bottom-left-radius: 5px;
     }
+    .date {
+      width: 100%;
+      display: flex;
+      gap: 10px;
+      &-start,
+      &-end {
+        width: 100%;
+      }
+    }
+    small {
+      font-style: italic;
+      color: #187ff5;
+      padding-left: 20px;
+      font-size: 0.65rem;
+    }
     input,
     textarea {
+      margin-bottom: 10px;
       background-color: transparent;
       border: 1px solid #0c410749;
       &:-webkit-autofill,

@@ -1,9 +1,451 @@
 import { useState } from "react";
+import { Info } from "./js/ShowPersonal";
+
+import Personal from "./js/AddPersonal";
+import Education from "./js/AddEducation";
+import Experience from "./js/AddExperience";
+import Reference from "./js/AddReference";
+import Skills from "./js/AddSkills";
+
+import { AddOtherInfo } from "./js/AddOtherInfo";
+
+import { ShowExperience } from "./js/ShowExperience";
+import { ShowEducation } from "./js/ShowEducation";
+import { ShowReferences } from "./js/ShowReferences";
+import { Others } from "./js/ShowOthers";
+
+import { FaEdit, FaEraser, FaCloudDownloadAlt, FaMagic, FaSave, FaFilePdf } from "react-icons/fa";
 
 function App() {
-  const [count, setCount] = useState(0);
+  // On first load it will show first 2 entry of Education and Experience field
+  // On clicking "Add another Entry" another entry will show
+  const [eduNOfEntry, setEduNOfEntry] = useState(2);
 
-  return <div className=" "></div>;
+  function addEduField(e) {
+    setEduNOfEntry((prev) => prev + 1);
+    if (eduNOfEntry <= 6) {
+      e.target.parentNode.children[eduNOfEntry].style.display = "block";
+    } else {
+      console.log("Only 5 entry can be added :( ");
+    }
+  }
+
+  const [exNOfEntry, setExNOfEntry] = useState(2);
+
+  function addExField(e) {
+    setExNOfEntry((prev) => prev + 1);
+    if (exNOfEntry <= 6) {
+      e.target.parentNode.children[exNOfEntry].style.display = "block";
+    } else {
+      console.log("Only 5 entry can be added :( ");
+    }
+  }
+
+  //  ##################################################################
+  // #####################################################################
+  const [person, setPerson] = useState({
+    name: "John Doe",
+    title: "Software Engineer",
+    bio: "I'm a passionate developer with a love for coding.",
+    img: "https://snipboard.io/NHMgAv.jpg",
+    email: "john.doe@example.com",
+    phone: "+1 (555) 123-4567",
+    website: "https://johndoe.com",
+    address: "123 Main Street, Cityville, State, Country",
+    expand: true,
+  });
+
+  const handlePersonalChange = {
+    NameChange: (e) => {
+      setPerson({ ...person, name: e.target.value });
+    },
+    TitleChange: (e) => {
+      setPerson({ ...person, title: e.target.value });
+    },
+    BioChange: (e) => {
+      setPerson({ ...person, bio: e.target.value });
+    },
+    EmailChange: (e) => {
+      setPerson({ ...person, email: e.target.value });
+    },
+    PhoneChange: (e) => {
+      setPerson({ ...person, phone: e.target.value });
+    },
+    WebChange: (e) => {
+      setPerson({ ...person, website: e.target.value });
+    },
+    AddressChange: (e) => {
+      setPerson({ ...person, address: e.target.value });
+    },
+    AvatarChange: (e) => {
+      setPerson({ ...person, img: URL.createObjectURL(e.target.files[0]) });
+    },
+    expand: (e) => {
+      setPerson({ ...person, expand: !person.expand });
+    },
+  };
+
+  const [education, setEducation] = useState([
+    {
+      schoolName: "University of Georgia",
+      degree: "Bachelor of Science in Computer Science",
+      gpa: "3.8 out of 4",
+      startDate: "August 2019",
+      endDate: "May 2023",
+      location: "Cityville, State",
+      additionalInfo: "Honors: Dean's List for four consecutive semesters. ; Ldipisicing elit. Id iure animi optio praesentium, voluptatem nisi",
+      visible: true,
+      expand: false,
+    },
+    {
+      schoolName: "Example University",
+      degree: "Full-Stack Web Development",
+      gpa: "3.8 out of 4",
+      startDate: "January 2022",
+      endDate: "June 2022",
+      location: "San Francisco, USA",
+      additionalInfo: "Completed an intensive bootcamp focused on modern web development technologies. ; Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos illo, quam in quidem amet eligendi!",
+      visible: true,
+      expand: false,
+    },
+    {
+      schoolName: "Example University",
+      degree: "Full-Stack Web Development",
+      gpa: "3.8 out of 4",
+      startDate: "January 2022",
+      endDate: "June 2022",
+      location: "San Francisco, USA",
+      additionalInfo: "Completed an intensive bootcamp focused on modern web development technologies.",
+      visible: true,
+      expand: false,
+    },
+    {
+      schoolName: "Example University",
+      degree: "Full-Stack Web Development",
+      gpa: "3.8 out of 4",
+      startDate: "January 2022",
+      endDate: "June 2022",
+      location: "San Francisco, USA",
+      additionalInfo: "Completed an intensive bootcamp focused on modern web development technologies.",
+      visible: true,
+      expand: false,
+    },
+    {
+      schoolName: "Example University",
+      degree: "Full-Stack Web Development",
+      gpa: "3.8 out of 4",
+      startDate: "January 2022",
+      endDate: "June 2022",
+      location: "San Francisco, USA",
+      additionalInfo: "Completed an intensive bootcamp focused on modern web development technologies.",
+      visible: false,
+      expand: false,
+    },
+  ]);
+
+  const handleEduChange = {
+    schoolName: (e, serial) => {
+      education[serial].schoolName = e.target.value;
+      setEducation([...education]);
+    },
+    degree: (e, serial) => {
+      education[serial].degree = e.target.value;
+      setEducation([...education]);
+    },
+    gpa: (e, serial) => {
+      education[serial].gpa = e.target.value;
+      setEducation([...education]);
+    },
+    startDate: (e, serial) => {
+      education[serial].startDate = e.target.value;
+      setEducation([...education]);
+    },
+    endDate: (e, serial) => {
+      education[serial].endDate = e.target.value;
+      setEducation([...education]);
+    },
+    location: (e, serial) => {
+      education[serial].location = e.target.value;
+      setEducation([...education]);
+    },
+    additionalInfo: (e, serial) => {
+      education[serial].additionalInfo = e.target.value;
+      setEducation([...education]);
+    },
+    visible: (e, serial) => {
+      education[serial].visible = !education[serial].visible;
+      setEducation([...education]);
+      // console.log(education[serial].visible);
+    },
+    expand: (e, serial) => {
+      education[serial].expand = !education[serial].expand;
+      setEducation([...education]);
+      // console.log(education[serial].visible);
+    },
+  };
+
+  const [experience, setExperience] = useState([
+    {
+      companyName: "Stark Corp",
+      jobTitle: "Software Engineer",
+      startDate: "June 2019",
+      endDate: "Present",
+      location: "San Francisco, USA",
+      additionalInfo: "Lead a team of developers in designing and implementing new features for the company's flagship product.",
+      visible: true,
+      expand: false,
+    },
+    {
+      companyName: "Wayne Corp",
+      jobTitle: "Junior Developer",
+      startDate: "March 2018",
+      endDate: "May 2019",
+      location: "San Francisco, USA",
+      additionalInfo: "Collaborated with senior developers to build and maintain client websites using the latest web technologies.",
+      visible: true,
+      expand: false,
+    },
+
+    {
+      companyName: "Stark Corp",
+      jobTitle: "Software Engineer",
+      startDate: "June 2019",
+      endDate: "Present",
+      location: "San Francisco, USA",
+      additionalInfo: "Lead a team of developers in designing and implementing new features for the company's flagship product.",
+      visible: true,
+      expand: false,
+    },
+    {
+      companyName: "Stark Corp",
+      jobTitle: "Software Engineer",
+      startDate: "June 2019",
+      endDate: "Present",
+      location: "San Francisco, USA",
+      additionalInfo: "Lead a team of developers in designing and implementing new features for the company's flagship product.",
+      visible: true,
+      expand: false,
+    },
+    {
+      companyName: "Stark Corp",
+      jobTitle: "Software Engineer",
+      startDate: "June 2019",
+      endDate: "Present",
+      location: "San Francisco, USA",
+      additionalInfo: "Lead a team of developers in designing and implementing new features for the company's flagship product.",
+      visible: true,
+      expand: false,
+    },
+  ]);
+
+  const handleExperience = {
+    companyName: (e, serial) => {
+      experience[serial].companyName = e.target.value;
+      setExperience([...experience]);
+    },
+    jobTitle: (e, serial) => {
+      experience[serial].jobTitle = e.target.value;
+      setExperience([...experience]);
+    },
+
+    startDate: (e, serial) => {
+      experience[serial].startDate = e.target.value;
+      setExperience([...experience]);
+    },
+    endDate: (e, serial) => {
+      experience[serial].endDate = e.target.value;
+      setExperience([...experience]);
+    },
+    location: (e, serial) => {
+      experience[serial].location = e.target.value;
+      setExperience([...experience]);
+    },
+    additionalInfo: (e, serial) => {
+      experience[serial].additionalInfo = e.target.value;
+      setExperience([...experience]);
+    },
+    visible: (e, serial) => {
+      experience[serial].visible = !experience[serial].visible;
+      setExperience([...experience]);
+      // console.log(experience[serial].visible);
+    },
+    expand: (e, serial) => {
+      experience[serial].expand = !experience[serial].expand;
+      setExperience([...experience]);
+      // console.log(experience[serial].visible);
+    },
+  };
+
+  const [references, setReferences] = useState([
+    {
+      referer: "Tony Stark",
+      title: "CEO Stark Corp.",
+      phone: "+1 123-666-7777",
+      visible: true,
+      expand: false,
+    },
+    {
+      referer: "Bruce Wayne",
+      title: "CEO Wayne Corp.",
+      phone: "+1 123-333-5555",
+      visible: true,
+      expand: false,
+    },
+  ]);
+
+  const handleReferences = {
+    referer: (e, serial) => {
+      references[serial].referer = e.target.value;
+      setReferences([...references]);
+    },
+    title: (e, serial) => {
+      references[serial].title = e.target.value;
+      setReferences([...references]);
+    },
+
+    phone: (e, serial) => {
+      references[serial].phone = e.target.value;
+      setReferences([...references]);
+    },
+
+    visible: (e, serial) => {
+      references[serial].visible = !references[serial].visible;
+      setReferences([...references]);
+      // console.log(references[serial].visible);
+    },
+    expand: (e, serial) => {
+      references[serial].expand = !references[serial].expand;
+      setReferences([...references]);
+      // console.log(references[serial].visible);
+    },
+  };
+
+  const [skills, setskills] = useState("ES6+ features; Async/Await; DOM manipulation; React");
+
+  function handleSkillChange(e) {
+    setskills(e.target.value);
+  }
+
+  const [inf, setInf] = useState([
+    {
+      title: "Languages",
+      summary: "English ; Spanish ; French",
+      visible: true,
+      expand: true,
+    },
+    {
+      title: "Hobbies",
+      summary: "Playing guitar ; Reading ; Cooking",
+      visible: true,
+      expand: false,
+    },
+  ]);
+
+  const handleInfoChange = {
+    title: (e, serial) => {
+      inf[serial].title = e.target.value;
+      setInf([...inf]);
+    },
+    summary: (e, serial) => {
+      inf[serial].summary = e.target.value;
+      setInf([...inf]);
+    },
+
+    visible: (e, serial) => {
+      inf[serial].visible = !inf[serial].visible;
+      setInf([...inf]);
+      // console.log(infs[serial].visible);
+    },
+    expand: (e, serial) => {
+      inf[serial].expand = !inf[serial].expand;
+      setInf([...inf]);
+      // console.log(infos[serial].visible);
+    },
+  };
+
+  return (
+    <div className="cv-parent">
+      <div className="cv-create">
+        <h1 className="builder">CV Builder</h1>
+        <div className="control">
+          <button className="btn">
+            <FaEdit /> Edit
+          </button>
+          <button className="btn">
+            <FaEraser /> Erase
+          </button>
+          <button className="btn">
+            <FaCloudDownloadAlt /> Load Sample
+          </button>
+        </div>
+        <div className="edit">
+          <Personal person={person} handleChange={handlePersonalChange} />
+          <div className=" education list-item">
+            <h3 className="title">Education</h3>
+            <Education degree={education[0]} number={"#01:"} serial={0} handleChange={handleEduChange} />
+            <Education degree={education[1]} number={"#02:"} serial={1} handleChange={handleEduChange} />
+            <Education degree={education[2]} number={"#03:"} serial={2} handleChange={handleEduChange} />
+            <Education degree={education[3]} number={"#04:"} serial={3} handleChange={handleEduChange} />
+            <Education degree={education[4]} number={"#05:"} serial={4} handleChange={handleEduChange} />
+            <button className="btn addField" onClick={addEduField}>
+              Add Another Degree
+            </button>
+          </div>
+
+          <div className="experience list-item">
+            <h3 className="title">Experiences</h3>
+
+            <Experience experience={experience[0]} number={"#01:"} serial={0} handleChange={handleExperience} />
+            <Experience experience={experience[1]} number={"#02:"} serial={1} handleChange={handleExperience} />
+            <Experience experience={experience[2]} number={"#03:"} serial={2} handleChange={handleExperience} />
+            <Experience experience={experience[3]} number={"#04:"} serial={3} handleChange={handleExperience} />
+            <Experience experience={experience[4]} number={"#05:"} serial={4} handleChange={handleExperience} />
+            <button className="btn addField" onClick={addExField}>
+              Add Another Experience
+            </button>
+          </div>
+          <div className="reference list-item">
+            <h3 className="title">References</h3>
+            <Reference reff={references[0]} number={"#01:"} serial={0} handleChange={handleReferences} />
+            <Reference reff={references[1]} number={"#02:"} serial={1} handleChange={handleReferences} />
+          </div>
+          <div className="skills list-item">
+            <h3 className="title">Skills</h3>
+            <Skills handleSkillChange={handleSkillChange} skills={skills} />
+          </div>
+          <div className="others list-item">
+            <h3 className="title">Other Info</h3>
+
+            <AddOtherInfo infos={inf[0]} number={"#01:"} serial={0} handleChange={handleInfoChange} />
+            <AddOtherInfo infos={inf[1]} number={"#02:"} serial={1} handleChange={handleInfoChange} />
+          </div>
+        </div>
+        <div className="personalize"></div>
+        <div className="control-fixed">
+          <button className="btn">
+            <FaMagic /> Personalize
+          </button>
+          <button className="btn">
+            <FaSave /> Save Drafts
+          </button>
+          <button className="btn">
+            <FaFilePdf /> Save as PDF
+          </button>
+        </div>
+      </div>
+      <div className="cv-show-wrapper">
+        <div className="cv-show">
+          <Info person={person} />
+          <div className="cv-child eduEx-wrapper">
+            <ShowEducation />
+            <ShowExperience />
+            <ShowReferences />
+          </div>
+          <Others />
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default App;

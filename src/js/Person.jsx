@@ -27,9 +27,20 @@ class ExperienceInfo {
 }
 
 // Usage example:
-const experienceInfo1 = new ExperienceInfo("Starc Corp", "Software Engineer", "June 2019", "Present", "San Francisco, USA", "Lead a team of developers in designing and implementing new features for the company's flagship product.");
+const experienceInfo1 = new ExperienceInfo("Stark Corp", "Software Engineer", "June 2019", "Present", "San Francisco, USA", "Lead a team of developers in designing and implementing new features for the company's flagship product.");
 
 const experienceInfo2 = new ExperienceInfo("Wayne Corp", "Junior Developer", "March 2018", "May 2019", "New York, USA", "Collaborated with senior developers to build and maintain client websites using the latest web technologies.");
+
+class References {
+  constructor(referer, title, phone) {
+    this.referer = referer;
+    this.title = title;
+    this.phone = phone;
+  }
+}
+
+const References1 = new References("Tony Stark", "CEO Stark Corp.", "+1 123-666-7777");
+const References2 = new References("Bruce Wayne", "CEO Wayne Corp.", "+1 123-333-5555");
 
 class Skill {
   constructor(title, details) {
