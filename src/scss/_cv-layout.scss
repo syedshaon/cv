@@ -25,3 +25,89 @@ body {
   justify-content: center;
   padding: 30px;
 }
+// Layout 1: Default Layout
+.noShowImg .eduEx-wrapper {
+  min-height: 950px;
+}
+// Extra Layout Starts
+
+// Layout 2: No Image Center Top
+.person.hideImg {
+  grid-template-areas: "info info" "contact contact";
+  .person-info {
+    text-align: center;
+  }
+}
+
+// Layout 3: No Skill Wide Bottom
+
+.noSkill.cv-show {
+  grid-template-areas: "person person person" "eduEx eduEx eduEx";
+  column-gap: 0;
+  .cv-child.others {
+    display: none !important;
+  }
+  .eduEx-wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+.leftSkill.cv-show {
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas: "person person " " others eduEx";
+  // column-gap: 20px;
+  .eduEx-wrapper {
+    padding-left: 20px;
+    padding-right: 40px;
+  }
+  .cv-child.others {
+    padding-left: 40px;
+  }
+}
+
+.allLeft.cv-show {
+  grid-template-columns: 3fr 7fr;
+  grid-template-areas: "person eduEx" "others eduEx";
+  // column-gap: 20px;
+  .eduEx-wrapper {
+    padding-left: 20px;
+    padding-right: 40px;
+    padding-top: 60px;
+    min-height: 1120px;
+  }
+  .cv-child.others {
+    padding-left: 40px;
+  }
+  .cv-child.person {
+    // display: block;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: " image" "info" "contact ";
+
+    .person-info,
+    .person-contact,
+    .person-img {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      // align-items: stretch;
+      margin-bottom: 20px;
+      margin-top: 0;
+      margin-right: 0;
+    }
+    .person-img {
+      margin-right: auto;
+    }
+    .person-name {
+      font-size: 1.2rem;
+    }
+    .person-title {
+      font-size: 1rem;
+    }
+  }
+}
+
+// Extra Layout Ends
+
+// scale cv preview for small devices

@@ -1,4 +1,4 @@
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaEye, FaRegEyeSlash, FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 export default function Personal({ loadFile, person, handleChange, handleNameChange }) {
   return (
@@ -39,7 +39,18 @@ export default function Personal({ loadFile, person, handleChange, handleNameCha
       <label htmlFor="avatar">
         Avatar <small> square shaped image preferred.</small>
       </label>
-      <input onChange={handleChange.AvatarChange} type="file" accept="image/*" name="image" id="file" />
+
+      <div className="imgInput" style={{ display: "flex", gap: "20px" }}>
+        <input onChange={handleChange.AvatarChange} type="file" accept="image/*" name="image" id="file" />
+        <span onClick={handleChange.showImgChange}>
+          <a title="Add to CV" className="see" style={{ display: person.showImg ? "none" : "inline-block" }}>
+            <FaEye />
+          </a>
+          <a title="Hide from CV" className="notSee" style={{ display: person.showImg ? "inline-block" : "none" }}>
+            <FaRegEyeSlash />
+          </a>
+        </span>
+      </div>
     </div>
   );
 }

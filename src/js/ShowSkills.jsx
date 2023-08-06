@@ -1,10 +1,10 @@
-export function Others({ oth }) {
+export function ShowSkills({ skl }) {
   return (
-    <div className="others-entry">
-      <h3 className="title">{oth.title}</h3>
+    <div className="others-entry" style={{ display: skl.visible ? "block" : "none" }}>
+      <h3 className="title">Skills</h3>
       <ul className="summary">
         {/* Summary separated with semicolor(;) are converted to a list(<li></li>) */}
-        {oth.summary.split(";").map((element, i) => {
+        {skl.list.split(";").map((element, i) => {
           return <li key={i}>{element}</li>;
         })}
       </ul>

@@ -1,24 +1,28 @@
 .cv-show {
+  width: 100%;
   max-width: 800px;
-  height: 1000px;
-  overflow-y: auto;
+
+  // overflow-y: auto;
   background-color: white;
 
   box-shadow: 0px 0px 10px 10px #0c410749;
 
-  grid-template-columns: 3fr 1fr;
-  column-gap: 40px;
+  grid-template-columns: 40px 3fr 1fr;
+  // column-gap: 40px;
   grid-template-rows: auto;
-  grid-template-areas: "person person" "eduEx others";
+  grid-template-areas: "person person person" "eduEx eduEx others";
   display: grid;
   align-content: start;
+  .eduEx-wrapper {
+    padding-left: 40px;
+  }
 }
 
 .top .person {
-  border-bottom: 2px solid #0c410749;
+  border-bottom: 2px solid var(--icon);
 }
 .right .person {
-  border-right: 2px solid #0c410749;
+  border-right: 2px solid var(--icon);
 }
 
 .person {
@@ -30,7 +34,7 @@
   display: grid;
 
   padding: 30px 20px 15px 40px;
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
   // align-items: start;
   align-content: start;
 
@@ -49,15 +53,18 @@
     grid-area: image;
     width: 120px;
     height: 120px;
-    border: 1px solid #0c410749;
+    border: 1px solid var(--icon);
     border-radius: 50%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     align-self: start;
+    justify-self: end;
+    margin-right: 20px;
   }
   &-contact {
     margin-top: 20px;
+    margin-right: 20px;
     grid-area: contact;
     display: flex;
     justify-content: space-between;
@@ -67,21 +74,28 @@
       display: flex;
       align-items: center;
     }
+    svg {
+      color: var(--icon);
+    }
   }
 }
 
+//   var(--icon);
+
 .eduEx-wrapper {
   grid-area: eduEx;
-  padding: 0px 20px 15px 40px;
+  padding: 10px 20px 15px 0px;
+  min-height: 915px;
 }
 .eduEx {
   margin: 10px 0;
+
   h2.title {
     text-transform: uppercase;
     font-size: 1rem;
     font-weight: 700;
     width: 100%;
-    border-bottom: 1px solid #0c410749;
+    border-bottom: 1px solid var(--icon);
   }
 
   &-list {
@@ -117,7 +131,7 @@
           left: -15px;
           width: 0.5rem;
           height: 0.5rem;
-          background-color: #0c410749;
+          background-color: var(--icon);
         }
       }
     }
@@ -125,7 +139,8 @@
 }
 .others {
   grid-area: others;
-  margin-top: 10px;
+  // padding-top: 10px;
+  padding: 10px 20px 15px 20px;
 
   &-entry {
     margin-bottom: 20px;
@@ -135,7 +150,7 @@
     font-size: 1rem;
     font-weight: 700;
     width: 100%;
-    border-bottom: 1px solid #0c410749;
+    border-bottom: 1px solid var(--icon);
   }
   .summary {
     margin-top: 10px;
@@ -150,7 +165,7 @@
         left: -15px;
         width: 0.5rem;
         height: 0.5rem;
-        background-color: #0c410749;
+        background-color: var(--icon);
       }
     }
   }

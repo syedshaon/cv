@@ -1,4 +1,12 @@
 import { useState } from "react";
+import first from "./assets/first.jpg";
+import second from "./assets/second.jpg";
+import third from "./assets/third.jpg";
+import fourth from "./assets/fourth.jpg";
+import fifth from "./assets/fifth.jpg";
+import sixth from "./assets/sixth.jpg";
+import imgURL from "./assets/gravatar.jpg";
+
 import { Info } from "./js/ShowPersonal";
 
 import Personal from "./js/AddPersonal";
@@ -13,28 +21,37 @@ import { ShowExperience } from "./js/ShowExperience";
 import { ShowEducation } from "./js/ShowEducation";
 import { ShowReferences } from "./js/ShowReferences";
 import { Others } from "./js/ShowOthers";
+import { ShowSkills } from "./js/ShowSkills";
 
 import { FaEdit, FaEraser, FaCloudDownloadAlt, FaMagic, FaSave, FaFilePdf } from "react-icons/fa";
 
 function App() {
+  function savePDF() {
+    // let clientHeight = document.getElementById("printableArea").clientHeight;
+    // console.log(clientHeight);
+
+    window.print();
+
+    // document.body.innerHTML = originalContents;
+  }
   // On first load it will show first 2 entry of Education and Experience field
   // On clicking "Add another Entry" another entry will show
-  const [eduNOfEntry, setEduNOfEntry] = useState(2);
+  const [eduNOfEntry, setEduNOfEntry] = useState(3);
 
   function addEduField(e) {
     setEduNOfEntry((prev) => prev + 1);
-    if (eduNOfEntry <= 6) {
+    if (eduNOfEntry <= 5) {
       e.target.parentNode.children[eduNOfEntry].style.display = "block";
     } else {
       console.log("Only 5 entry can be added :( ");
     }
   }
 
-  const [exNOfEntry, setExNOfEntry] = useState(2);
+  const [exNOfEntry, setExNOfEntry] = useState(3);
 
   function addExField(e) {
     setExNOfEntry((prev) => prev + 1);
-    if (exNOfEntry <= 6) {
+    if (exNOfEntry <= 5) {
       e.target.parentNode.children[exNOfEntry].style.display = "block";
     } else {
       console.log("Only 5 entry can be added :( ");
@@ -44,15 +61,16 @@ function App() {
   //  ##################################################################
   // #####################################################################
   const [person, setPerson] = useState({
-    name: "John Doe",
-    title: "Software Engineer",
+    name: "Mashiur Rahman",
+    title: "Front-End Developer",
     bio: "I'm a passionate developer with a love for coding.",
-    img: "https://snipboard.io/NHMgAv.jpg",
+    img: imgURL,
+    showImg: true,
     email: "john.doe@example.com",
-    phone: "+1 (555) 123-4567",
+    phone: "+88 01715-555555",
     website: "https://johndoe.com",
-    address: "123 Main Street, Cityville, State, Country",
-    expand: true,
+    address: "Faridpur, DB",
+    expand: false,
   });
 
   const handlePersonalChange = {
@@ -80,6 +98,9 @@ function App() {
     AvatarChange: (e) => {
       setPerson({ ...person, img: URL.createObjectURL(e.target.files[0]) });
     },
+    showImgChange: (e) => {
+      setPerson({ ...person, showImg: !person.showImg });
+    },
     expand: (e) => {
       setPerson({ ...person, expand: !person.expand });
     },
@@ -87,7 +108,7 @@ function App() {
 
   const [education, setEducation] = useState([
     {
-      schoolName: "University of Georgia",
+      schoolName: "University of Georgia 1",
       degree: "Bachelor of Science in Computer Science",
       gpa: "3.8 out of 4",
       startDate: "August 2019",
@@ -98,7 +119,7 @@ function App() {
       expand: false,
     },
     {
-      schoolName: "Example University",
+      schoolName: "Udemy University 2",
       degree: "Full-Stack Web Development",
       gpa: "3.8 out of 4",
       startDate: "January 2022",
@@ -109,29 +130,29 @@ function App() {
       expand: false,
     },
     {
-      schoolName: "Example University",
+      schoolName: "Example University 3",
       degree: "Full-Stack Web Development",
       gpa: "3.8 out of 4",
       startDate: "January 2022",
       endDate: "June 2022",
       location: "San Francisco, USA",
       additionalInfo: "Completed an intensive bootcamp focused on modern web development technologies.",
-      visible: true,
+      visible: false,
       expand: false,
     },
     {
-      schoolName: "Example University",
+      schoolName: "Example University 4",
       degree: "Full-Stack Web Development",
       gpa: "3.8 out of 4",
       startDate: "January 2022",
       endDate: "June 2022",
       location: "San Francisco, USA",
       additionalInfo: "Completed an intensive bootcamp focused on modern web development technologies.",
-      visible: true,
+      visible: false,
       expand: false,
     },
     {
-      schoolName: "Example University",
+      schoolName: "Example University 5",
       degree: "Full-Stack Web Development",
       gpa: "3.8 out of 4",
       startDate: "January 2022",
@@ -213,7 +234,7 @@ function App() {
       endDate: "Present",
       location: "San Francisco, USA",
       additionalInfo: "Lead a team of developers in designing and implementing new features for the company's flagship product.",
-      visible: true,
+      visible: false,
       expand: false,
     },
     {
@@ -223,7 +244,7 @@ function App() {
       endDate: "Present",
       location: "San Francisco, USA",
       additionalInfo: "Lead a team of developers in designing and implementing new features for the company's flagship product.",
-      visible: true,
+      visible: false,
       expand: false,
     },
     {
@@ -233,7 +254,7 @@ function App() {
       endDate: "Present",
       location: "San Francisco, USA",
       additionalInfo: "Lead a team of developers in designing and implementing new features for the company's flagship product.",
-      visible: true,
+      visible: false,
       expand: false,
     },
   ]);
@@ -320,18 +341,31 @@ function App() {
     },
   };
 
-  const [skills, setskills] = useState("ES6+ features; Async/Await; DOM manipulation; React");
+  const [skills, setskills] = useState({
+    list: "ES6+ features; Async/Await; DOM manipulation; React",
+    visible: true,
+    expand: false,
+  });
 
-  function handleSkillChange(e) {
-    setskills(e.target.value);
-  }
+  const handleSkillChange = {
+    list: (e) => {
+      setskills({ ...skills, list: e.target.value });
+    },
+
+    visible: (e) => {
+      setskills({ ...skills, visible: !skills.visible });
+    },
+    expand: (e) => {
+      setskills({ ...skills, expand: !skills.expand });
+    },
+  };
 
   const [inf, setInf] = useState([
     {
       title: "Languages",
       summary: "English ; Spanish ; French",
       visible: true,
-      expand: true,
+      expand: false,
     },
     {
       title: "Hobbies",
@@ -363,85 +397,282 @@ function App() {
     },
   };
 
+  // Layout Related Code. Output goes to .cv-show
+
+  const [leftSkillVal, setLeftSkillVal] = useState(false);
+  const [allLeftVal, setLeftVal] = useState(false);
+  const imgShow = person.showImg ? "showImg" : "noShowImg";
+
+  const noSkill = skills.visible || inf[0].visible || inf[1].visible ? `` : ` noSkill `;
+  const leftSkill = (skills.visible || inf[0].visible || inf[1].visible) && leftSkillVal ? `leftSkill` : ` `;
+
+  const [showEdit, setShowEdit] = useState(false);
+  const [showPersonalize, setPersonalize] = useState(true);
+  function Edit(params) {
+    setShowEdit(true);
+    setPersonalize(false);
+  }
+  function Personalize(params) {
+    setShowEdit(false);
+    setPersonalize(true);
+  }
+  const [hColor, setHColor] = useState("#ffffff");
+  const [cColor, setCColor] = useState("#ffffff");
+  const [sColor, setSColor] = useState("#ffffff");
+  const [fColor, setFColor] = useState("#000000");
+
+  function setContentColor(e) {
+    setCColor(e.target.value);
+    document.documentElement.style.setProperty("--bodyC", e.target.value);
+  }
+
+  // document.documentElement.style.setProperty("--icon", "red");
+
+  const [iColor, setIColor] = useState("#640707");
+  function handleIColor(e) {
+    setIColor(e.target.value);
+    document.documentElement.style.setProperty("--icon", e.target.value);
+  }
+
+  function handleLayoutOne() {
+    // enable image
+
+    setPerson({ ...person, showImg: true });
+
+    // enable sidepanel
+    setskills({ ...skills, visible: true });
+
+    inf[0].visible = true;
+    inf[1].visible = true;
+    setInf([...inf]);
+
+    // disable LEFT sidepanel
+    setLeftSkillVal(false);
+    // Remove AllLeft Class
+    setLeftVal(false);
+  }
+  function handleLayoutTwo() {
+    // disable image
+    setPerson({ ...person, showImg: false });
+    // enable sidepanel
+    setskills({ ...skills, visible: true });
+
+    inf[0].visible = true;
+    inf[1].visible = true;
+    setInf([...inf]);
+    // disable LEFT sidepanel
+    setLeftSkillVal(false);
+    // Remove AllLeft Class
+    setLeftVal(false);
+  }
+  function handleLayoutThree() {
+    // disable side panel
+    setskills({ ...skills, visible: false });
+
+    inf[0].visible = false;
+    inf[1].visible = false;
+    setInf([...inf]);
+    // disable LEFT sidepanel
+    setLeftSkillVal(false);
+    // enable image
+    setPerson({ ...person, showImg: true });
+    // Remove AllLeft Class
+    setLeftVal(false);
+  }
+  function handleLayoutFour() {
+    // enable image
+    setPerson({ ...person, showImg: true });
+    // enable sidepanel
+    setskills({ ...skills, visible: true });
+
+    inf[0].visible = true;
+    inf[1].visible = true;
+    setInf([...inf]);
+    // Add AllLeft Class
+    setLeftVal(true);
+  }
+  function handleLayoutFive() {
+    // disable side panel
+    setskills({ ...skills, visible: false });
+
+    inf[0].visible = false;
+    inf[1].visible = false;
+    setInf([...inf]);
+    // disable LEFT sidepanel
+    setLeftSkillVal(false);
+    // disable image
+    setPerson({ ...person, showImg: false });
+    // Remove AllLeft Class
+    setLeftVal(false);
+  }
+  function handleLayoutSix() {
+    // enable image
+    setPerson({ ...person, showImg: true });
+    // enable sidepanel
+    setskills({ ...skills, visible: true });
+
+    inf[0].visible = true;
+    inf[1].visible = true;
+    // enable LEFT sidepanel
+    setLeftSkillVal(true);
+    // Remove AllLeft Class
+    setLeftVal(false);
+  }
+
   return (
     <div className="cv-parent">
       <div className="cv-create">
         <h1 className="builder">CV Builder</h1>
         <div className="control">
-          <button className="btn">
+          <button onClick={Edit} className="btn">
             <FaEdit /> Edit
           </button>
-          <button className="btn">
+          <button onClick={Personalize} className="btn">
+            <FaMagic /> Personalize
+          </button>
+          <button className="btn" id="savePDF" onClick={savePDF}>
+            <FaFilePdf /> Save as PDF
+          </button>
+          {/* <button className="btn">
             <FaEraser /> Erase
           </button>
           <button className="btn">
             <FaCloudDownloadAlt /> Load Sample
-          </button>
+          </button> */}
         </div>
         <div className="edit">
-          <Personal person={person} handleChange={handlePersonalChange} />
-          <div className=" education list-item">
-            <h3 className="title">Education</h3>
-            <Education degree={education[0]} number={"#01:"} serial={0} handleChange={handleEduChange} />
-            <Education degree={education[1]} number={"#02:"} serial={1} handleChange={handleEduChange} />
-            <Education degree={education[2]} number={"#03:"} serial={2} handleChange={handleEduChange} />
-            <Education degree={education[3]} number={"#04:"} serial={3} handleChange={handleEduChange} />
-            <Education degree={education[4]} number={"#05:"} serial={4} handleChange={handleEduChange} />
-            <button className="btn addField" onClick={addEduField}>
-              Add Another Degree
-            </button>
+          <div className="personalize-area" style={{ display: showPersonalize ? "block" : "none" }}>
+            <div className="color-area">
+              <h3 className="design-title">Select a Layout</h3>
+              <div className="color">
+                <div className="color-picker font">
+                  <input type="color" value={fColor} onChange={(e) => setFColor(e.target.value)} name="fColor" />
+                  <label htmlFor="fColor">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text Color &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                </div>
+                <div className="color-picker icon">
+                  <input type="color" value={iColor} onChange={handleIColor} name="iColor" />
+                  <label htmlFor="iColor">Icon Color</label>
+                </div>
+              </div>
+              <div className="color">
+                <div className="color-picker header">
+                  <input type="color" value={hColor} onChange={(e) => setHColor(e.target.value)} name="hColor" />
+                  <label htmlFor="hColor">Header Background</label>
+                </div>
+                <div className="color-picker content">
+                  <input type="color" value={cColor} onChange={setContentColor} name="cColor" />
+                  <label htmlFor="cColor">Content Background</label>
+                </div>
+                <div className="color-picker sidebar">
+                  <input type="color" value={sColor} onChange={(e) => setSColor(e.target.value)} name="sColor" />
+                  <label htmlFor="sColor">Sidebar Background</label>
+                </div>
+              </div>
+            </div>
+            <div className="design-wrapper">
+              <h3 className="design-title">Select a Layout</h3>
+              <div className="design">
+                <div className="layout layout-1" onClick={handleLayoutOne}>
+                  <img src={first} className="layout-img" alt="layout-img" />
+                </div>
+                <div className="layout layout-2" onClick={handleLayoutTwo}>
+                  <img src={second} className="layout-img" alt="layout-img" />
+                </div>
+                <div className="layout layout-3" onClick={handleLayoutThree}>
+                  <img src={third} className="layout-img" alt="layout-img" />
+                </div>
+                <div className="layout layout-4" onClick={handleLayoutFour}>
+                  <img src={fourth} className="layout-img" alt="layout-img" />
+                </div>
+                <div className="layout layout-5" onClick={handleLayoutFive}>
+                  <img src={fifth} className="layout-img" alt="layout-img" />
+                </div>
+                <div className="layout layout-6" onClick={handleLayoutSix}>
+                  <img src={sixth} className="layout-img" alt="layout-img" />
+                </div>
+              </div>
+            </div>
           </div>
+          <div className="edit-area" style={{ display: showEdit ? "block" : "none" }}>
+            <Personal person={person} handleChange={handlePersonalChange} />
+            <div className=" education list-item">
+              <h3 className="title">Education</h3>
+              <Education degree={education[0]} number={"#01:"} serial={0} handleChange={handleEduChange} />
+              <Education degree={education[1]} number={"#02:"} serial={1} handleChange={handleEduChange} />
+              <Education degree={education[2]} number={"#03:"} serial={2} handleChange={handleEduChange} />
+              <Education degree={education[3]} number={"#04:"} serial={3} handleChange={handleEduChange} />
+              <Education degree={education[4]} number={"#05:"} serial={4} handleChange={handleEduChange} />
+              <button className="btn addField" onClick={addEduField}>
+                Add Another Degree
+              </button>
+            </div>
 
-          <div className="experience list-item">
-            <h3 className="title">Experiences</h3>
+            <div className="experience list-item">
+              <h3 className="title">Experiences</h3>
 
-            <Experience experience={experience[0]} number={"#01:"} serial={0} handleChange={handleExperience} />
-            <Experience experience={experience[1]} number={"#02:"} serial={1} handleChange={handleExperience} />
-            <Experience experience={experience[2]} number={"#03:"} serial={2} handleChange={handleExperience} />
-            <Experience experience={experience[3]} number={"#04:"} serial={3} handleChange={handleExperience} />
-            <Experience experience={experience[4]} number={"#05:"} serial={4} handleChange={handleExperience} />
-            <button className="btn addField" onClick={addExField}>
-              Add Another Experience
-            </button>
-          </div>
-          <div className="reference list-item">
-            <h3 className="title">References</h3>
-            <Reference reff={references[0]} number={"#01:"} serial={0} handleChange={handleReferences} />
-            <Reference reff={references[1]} number={"#02:"} serial={1} handleChange={handleReferences} />
-          </div>
-          <div className="skills list-item">
-            <h3 className="title">Skills</h3>
+              <Experience experience={experience[0]} number={"#01:"} serial={0} handleChange={handleExperience} />
+              <Experience experience={experience[1]} number={"#02:"} serial={1} handleChange={handleExperience} />
+              <Experience experience={experience[2]} number={"#03:"} serial={2} handleChange={handleExperience} />
+              <Experience experience={experience[3]} number={"#04:"} serial={3} handleChange={handleExperience} />
+              <Experience experience={experience[4]} number={"#05:"} serial={4} handleChange={handleExperience} />
+              <button className="btn addField" onClick={addExField}>
+                Add Another Experience
+              </button>
+            </div>
+            <div className="reference list-item">
+              <h3 className="title">References</h3>
+              <Reference reff={references[0]} number={"#01:"} serial={0} handleChange={handleReferences} />
+              <Reference reff={references[1]} number={"#02:"} serial={1} handleChange={handleReferences} />
+            </div>
+
             <Skills handleSkillChange={handleSkillChange} skills={skills} />
-          </div>
-          <div className="others list-item">
-            <h3 className="title">Other Info</h3>
 
-            <AddOtherInfo infos={inf[0]} number={"#01:"} serial={0} handleChange={handleInfoChange} />
-            <AddOtherInfo infos={inf[1]} number={"#02:"} serial={1} handleChange={handleInfoChange} />
+            <div className="editOthers list-item">
+              <h3 className="title">Other Info</h3>
+
+              <AddOtherInfo infos={inf[0]} number={"#01:"} serial={0} handleChange={handleInfoChange} />
+              <AddOtherInfo infos={inf[1]} number={"#02:"} serial={1} handleChange={handleInfoChange} />
+            </div>
           </div>
         </div>
         <div className="personalize"></div>
-        <div className="control-fixed">
-          <button className="btn">
-            <FaMagic /> Personalize
-          </button>
-          <button className="btn">
-            <FaSave /> Save Drafts
-          </button>
-          <button className="btn">
-            <FaFilePdf /> Save as PDF
-          </button>
-        </div>
       </div>
-      <div className="cv-show-wrapper">
-        <div className="cv-show">
-          <Info person={person} />
-          <div className="cv-child eduEx-wrapper">
-            <ShowEducation />
-            <ShowExperience />
-            <ShowReferences />
+      <div className="cv-show-wrapper" id="print" style={{ color: fColor }}>
+        {/* className={experience.expand ? `entry show ` : `entry hide `}> */}
+
+        <div className={`cv-show ${noSkill} ${imgShow} ${leftSkill} ${allLeftVal && "allLeft"}`} id="printableArea">
+          <Info person={person} hColor={hColor} />
+          <div className="cv-child eduEx-wrapper" style={{ backgroundColor: `${cColor}` }}>
+            <div className="eduEx education" style={{ display: education[0].visible || education[1].visible || education[2].visible || education[3].visible || education[4].visible ? "block" : "none" }}>
+              <h2 className="title">Education</h2>
+              {education[0].visible && <ShowEducation degree={education[0]} />}
+              {education[1].visible && <ShowEducation degree={education[1]} />}
+              {education[2].visible && <ShowEducation degree={education[2]} />}
+              {education[3].visible && <ShowEducation degree={education[3]} />}
+              {education[4].visible && <ShowEducation degree={education[4]} />}
+            </div>
+
+            <div className="eduEx experience" style={{ display: experience[0].visible || experience[1].visible || experience[2].visible || experience[3].visible || experience[4].visible ? "block" : "none" }}>
+              <h2 className="title">Experience</h2>
+              {experience[0].visible && <ShowExperience exp={experience[0]} />}
+              {experience[1].visible && <ShowExperience exp={experience[1]} />}
+              {experience[2].visible && <ShowExperience exp={experience[2]} />}
+              {experience[3].visible && <ShowExperience exp={experience[3]} />}
+              {experience[4].visible && <ShowExperience exp={experience[4]} />}
+            </div>
+            <div className="eduEx references" style={{ display: references[0].visible || references[1].visible ? "block" : "none" }}>
+              <h2 className="title">References</h2>
+              <div className="eduEx-list eduEx-list-top">
+                {references[0].visible && <ShowReferences refs={references[0]} />}
+                {references[1].visible && <ShowReferences refs={references[1]} />}
+              </div>
+            </div>
           </div>
-          <Others />
+          <div className="cv-child others" style={{ display: inf[0].visible || inf[1].visible || skills.visible ? "block" : "none", backgroundColor: `${sColor}` }}>
+            <ShowSkills skl={skills} />
+            {inf[0].visible && <Others oth={inf[0]} />}
+            {inf[1].visible && <Others oth={inf[1]} />}
+          </div>
         </div>
       </div>
     </div>

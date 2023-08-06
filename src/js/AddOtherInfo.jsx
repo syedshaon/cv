@@ -2,8 +2,8 @@ import { FaEye, FaRegEyeSlash, FaChevronDown, FaChevronUp } from "react-icons/fa
 
 export function AddOtherInfo({ infos, handleChange, number, serial }) {
   return (
-    <div className={infos.expand ? `entry show ${serial}` : `entry hide ${serial}`}>
-      <h3 className="title" style={{ fontSize: ".7rem" }}>
+    <div className={infos.expand ? `entry show ` : `entry hide `}>
+      <h4 className="title">
         {infos.title}
         <div className="tools">
           <span className="expand" onClick={(e) => handleChange.expand(e, serial)}>
@@ -23,15 +23,15 @@ export function AddOtherInfo({ infos, handleChange, number, serial }) {
             </a>
           </span>
         </div>
-      </h3>
+      </h4>
 
       <label htmlFor="iTitle">Info Title</label>
-      <input value={infos.title} onChange={handleChange.title} type="text" name="iTitle" id="iTitle" />
+      <input value={infos.title} onChange={(e) => handleChange.title(e, serial)} type="text" name="iTitle" id="iTitle" />
 
       <label htmlFor="summary">
         Summary / Achievements <small> separate each with semicolon (;)</small>
       </label>
-      <textarea value={infos.summary} onChange={handleChange.summary} name="summary" rows="3"></textarea>
+      <textarea value={infos.summary} onChange={(e) => handleChange.summary(e, serial)} name="summary" rows="3"></textarea>
     </div>
   );
 }

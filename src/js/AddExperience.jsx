@@ -3,7 +3,7 @@ import { FaEye, FaRegEyeSlash, FaChevronDown, FaChevronUp } from "react-icons/fa
 export default function Experience({ experience, number, handleChange, serial }) {
   return (
     <div className={experience.expand ? `entry show ${serial}` : `entry hide ${serial}`}>
-      <h3 className="title entry-title">
+      <h4 className="title entry-title">
         {number} Experience
         <div className="tools">
           <span className="expand" onClick={(e) => handleChange.expand(e, serial)}>
@@ -23,7 +23,7 @@ export default function Experience({ experience, number, handleChange, serial })
             </a>
           </span>
         </div>
-      </h3>
+      </h4>
       <label htmlFor="cName">Company Name</label>
       <input onChange={(e) => handleChange.companyName(e, serial)} value={experience.companyName} type="text" name="cName" />
 

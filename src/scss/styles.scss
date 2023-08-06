@@ -4,3 +4,40 @@
 @import "./cs-show";
 @import "./cv-edit";
 @import "./icons";
+
+// @media print {
+// body {
+//   visibility: hidden;
+//   max-width: 800px;
+// }
+// .cv-show {
+//   width: 100%;
+//   visibility: visible;
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+// }
+// }
+
+@media print {
+  body {
+    background-color: var(--bodyC);
+  }
+
+  .cv-show {
+    box-shadow: none;
+  }
+  .cv-show-wrapper {
+    padding: 0;
+  }
+  .cv-parent {
+    display: block;
+    padding: 0;
+  }
+  .cv-create {
+    display: none;
+  }
+  .references {
+    margin-top: 40px;
+  }
+}

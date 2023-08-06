@@ -10,3 +10,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <App />
   </React.StrictMode>
 );
+
+// let element = document.getElementById("print");
+// html2pdf(element);

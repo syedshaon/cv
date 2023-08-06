@@ -6,11 +6,13 @@
     text-align: center;
     margin-bottom: 20px;
     text-transform: uppercase;
+    color: #187ff5;
   }
   .control {
     display: flex;
     justify-content: space-between;
     .btn {
+      cursor: pointer;
       background-color: #187ff5;
       padding: 6px 20px;
       margin: 3px;
@@ -31,42 +33,43 @@
   }
 }
 
-.control-fixed {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  .btn {
-    background-color: #187ff5;
-    padding: 6px 20px;
-    margin: 3px;
-    //   box-shadow: 0px 0px 5px 5px #0c410749;
-    color: #fff;
-    font-weight: 700;
-    border-top-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border: 1px solid #187ff5;
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: #fff;
-      color: #187ff5;
-      transition: all 0.2s;
-    }
-  }
-}
+// .control-fixed {
+//   position: fixed;
+//   top: 20px;
+//   right: 20px;
+//   display: flex;
+//   flex-direction: column;
+//   .btn {
+//     cursor: pointer;
+//     background-color: #187ff5;
+//     padding: 6px 20px;
+//     margin: 3px;
+//     //   box-shadow: 0px 0px 5px 5px #0c410749;
+//     color: #fff;
+//     font-weight: 700;
+//     border-top-right-radius: 5px;
+//     border-bottom-left-radius: 5px;
+//     border: 1px solid #187ff5;
+//     &:hover,
+//     &:focus,
+//     &:active {
+//       background-color: #fff;
+//       color: #187ff5;
+//       transition: all 0.2s;
+//     }
+//   }
+// }
 
 .edit {
   padding-bottom: 50px;
   // Show only first 2 entry of Education, Experience list.
-  .list-item > div {
+  // .list-item > div {
+  //   display: none;
+  // }
+  .list-item > div:nth-child(4),
+  .list-item > div:nth-child(5),
+  .list-item > div:nth-child(6) {
     display: none;
-  }
-  .list-item > div:nth-child(2),
-  .list-item > div:nth-child(3),
-  .list-item > h3:first-child {
-    display: block;
   }
   //  Show only first 2 entry of Education, Experience list. ENDS
   a.see,
@@ -92,7 +95,14 @@
       display: none;
     }
   }
-  .entry.show {
+  .personal.hide,
+  .skills.hide {
+    height: 45px;
+  }
+
+  .entry.show,
+  .personal.show,
+  .skills.show {
     height: auto;
     overflow: hidden;
 
@@ -108,14 +118,23 @@
     .title {
       display: flex;
       justify-content: space-between;
-      span {
+      span,
+      a {
         color: #187ff5;
       }
     }
   }
+  .entry > * {
+    margin-left: 20px;
+  }
+  .personal h3.title,
+  .skills h3.title {
+    margin-left: 0;
+  }
+
   .list-item:not(:last-of-type) {
     padding-bottom: 20px;
-    border-bottom: 5px dashed #187ff5;
+    // border-bottom: 2px dashed #187ff5;
   }
   .list-item {
     margin-top: 20px;
@@ -124,10 +143,23 @@
       font-size: 1.1rem;
       font-weight: 700;
       width: 100%;
+      // border-bottom: 1px solid #0c410749;
+      margin-bottom: 10px;
+      background-color: #187ff533;
+      padding: 6px 20px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    h4.title {
+      font-size: 0.8rem;
+      font-weight: 700;
       border-bottom: 1px solid #0c410749;
       margin-bottom: 10px;
     }
     h3.entry-title {
+      font-size: 0.9rem;
+    }
+    .tools a {
       font-size: 0.9rem;
     }
     h3.personalDetails {
@@ -143,14 +175,23 @@
     textarea {
       display: block;
     }
-    input,
-    button,
-    textarea {
+
+    button {
       width: 100%;
 
       border-top-right-radius: 5px;
       border-bottom-left-radius: 5px;
     }
+
+    input,
+    textarea {
+      // Reduced 20px width bcz of 20px left margin
+      width: calc(100% - 20px);
+
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+
     .date {
       width: 100%;
       display: flex;
@@ -192,6 +233,125 @@
         background-color: #fff;
         color: #187ff5;
         transition: all 0.2s;
+      }
+    }
+    button.addField {
+      background-color: #fff;
+      padding: 6px 20px;
+      margin: 3px;
+      //   box-shadow: 0px 0px 5px 5px #0c410749;
+      color: #187ff5;
+      font-weight: 700;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border: 1px solid #187ff5;
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: #187ff5;
+        color: #fff;
+        transition: all 0.2s;
+      }
+    }
+  }
+}
+
+// ///////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////
+
+// Personalize Area
+.personalize-area {
+  margin-top: 30px;
+  .color-area {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .color {
+      display: flex;
+      justify-content: space-around;
+      &-picker {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #187ff5;
+        font-weight: 700;
+        gap: 10px;
+        // background: white;
+        // box-shadow: 1em 1em 1em rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  input[type="color"] {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: 1px solid #187ff5;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 40px;
+    padding: 0;
+    width: 60px;
+  }
+
+  *:focus {
+    border-radius: 0;
+    outline: none;
+  }
+
+  ::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+
+  ::-webkit-color-swatch {
+    border: 1px solid #187ff5;
+    border-radius: 5px;
+  }
+
+  ::-moz-color-swatch,
+  ::-moz-focus-inner {
+    border: 1px solid #187ff5;
+  }
+
+  ::-moz-focus-inner {
+    padding: 0;
+  }
+
+  // ///////////////////////////////////////////////////////////////
+  // ///////////////////////////////////////////////////////////////
+  // Layout Selector Area
+  h3.design-title {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    background-color: rgba(24, 127, 245, 0.2);
+    padding: 6px 20px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  .design {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    flex: 0 1 180px;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    .layout {
+      cursor: pointer;
+      max-width: 150px;
+      // border: 2px solid transparent;
+      box-shadow: 0em 0em 0em transparent;
+      padding: 5px;
+      transition: 0.2s;
+      &:hover,
+      &:focus {
+        // border: 2px solid #187ff5;
+        box-shadow: 0em 0em 1em #187ff5;
       }
     }
   }

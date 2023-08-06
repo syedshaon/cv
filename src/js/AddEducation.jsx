@@ -3,7 +3,7 @@ import { FaEye, FaRegEyeSlash, FaChevronDown, FaChevronUp } from "react-icons/fa
 export default function Education({ degree, number, handleChange, serial }) {
   return (
     <div className={degree.expand ? `entry show ${serial}` : `entry hide ${serial}`}>
-      <h3 className="title entry-title">
+      <h4 className="title entry-title">
         {number} Degree
         <div className="tools">
           <span className="expand" onClick={(e) => handleChange.expand(e, serial)}>
@@ -23,7 +23,7 @@ export default function Education({ degree, number, handleChange, serial }) {
             </a>
           </span>
         </div>
-      </h3>
+      </h4>
       <label htmlFor="sName">School Name</label>
       <input onChange={(e) => handleChange.schoolName(e, serial)} value={degree.schoolName} type="text" name="sName" />
 
