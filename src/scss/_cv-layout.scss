@@ -68,6 +68,7 @@ body {
 .allLeft.cv-show {
   grid-template-columns: 3fr 7fr;
   grid-template-areas: "person eduEx" "others eduEx";
+  grid-template-rows: 500px auto;
   // column-gap: 20px;
   .eduEx-wrapper {
     padding-left: 20px;
@@ -80,7 +81,8 @@ body {
   }
   .cv-child.person {
     // display: block;
-
+    // max-width: 300px;
+    overflow: hidden;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-template-areas: " image" "info" "contact ";
