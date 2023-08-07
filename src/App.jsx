@@ -69,7 +69,7 @@ function App() {
     email: "john.doe@example.com",
     phone: "+88 01715-555555",
     website: "https://johndoe.com",
-    address: "Faridpur, DB",
+    address: "Faridpur, BD",
     expand: false,
   });
 
@@ -406,8 +406,8 @@ function App() {
   const noSkill = skills.visible || inf[0].visible || inf[1].visible ? `` : ` noSkill `;
   const leftSkill = (skills.visible || inf[0].visible || inf[1].visible) && leftSkillVal ? `leftSkill` : ` `;
 
-  const [showEdit, setShowEdit] = useState(false);
-  const [showPersonalize, setPersonalize] = useState(true);
+  const [showEdit, setShowEdit] = useState(true);
+  const [showPersonalize, setPersonalize] = useState(false);
   function Edit(params) {
     setShowEdit(true);
     setPersonalize(false);
@@ -523,15 +523,15 @@ function App() {
     <div className="cv-parent">
       <div className="cv-create">
         <h1 className="builder">CV Builder</h1>
-        <div className="control">
+        <nav className="control">
           <button onClick={Edit} className="btn">
             <FaEdit /> Edit
           </button>
           <button onClick={Personalize} className="btn">
-            <FaMagic /> Personalize
+            <FaMagic /> Customize
           </button>
           <button className="btn" id="savePDF" onClick={savePDF}>
-            <FaFilePdf /> Save as PDF
+            <FaFilePdf /> Print
           </button>
           {/* <button className="btn">
             <FaEraser /> Erase
@@ -539,7 +539,7 @@ function App() {
           <button className="btn">
             <FaCloudDownloadAlt /> Load Sample
           </button> */}
-        </div>
+        </nav>
         <div className="edit">
           <div className="personalize-area" style={{ display: showPersonalize ? "block" : "none" }}>
             <div className="color-area">

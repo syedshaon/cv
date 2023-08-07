@@ -22,6 +22,8 @@
 @media print {
   body {
     background-color: var(--bodyC);
+    // Following to ensure graphics show up on mobile while printing
+    -webkit-print-color-adjust: exact;
   }
 
   .cv-show {
