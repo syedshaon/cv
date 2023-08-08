@@ -23,7 +23,7 @@ import { ShowReferences } from "./js/ShowReferences";
 import { Others } from "./js/ShowOthers";
 import { ShowSkills } from "./js/ShowSkills";
 
-import { FaEdit, FaEraser, FaCloudDownloadAlt, FaMagic, FaSave, FaFilePdf } from "react-icons/fa";
+import { FaEdit, FaGithub, FaCloudDownloadAlt, FaMagic, FaSave, FaFilePdf } from "react-icons/fa";
 
 function App() {
   function savePDF() {
@@ -568,6 +568,11 @@ function App() {
             <button className="btn" id="loadSample" onClick={LoadSample}>
               <FaCloudDownloadAlt /> Load Sample
             </button>
+            <a target="blank" id="git" href="https://github.com/syedshaon/cv" title="Github Repo" className="git">
+              <button className="btn">
+                <FaGithub /> Source Code
+              </button>
+            </a>
           </div>
 
           {/* <button className="btn">
