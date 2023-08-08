@@ -10,7 +10,8 @@
   }
   .control {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin-bottom: 10px;
     .btn {
       cursor: pointer;
       background-color: #187ff5;
@@ -28,6 +29,26 @@
         background-color: #fff;
         color: #187ff5;
         transition: all 0.2s;
+      }
+    }
+    #loadSample {
+      // position: fixed;
+      // top: 30px;
+      // right: 30px;
+
+      background-color: #179ea1;
+      padding: 10px 20px;
+      margin: 3px;
+      box-shadow: 0px 0px 5px 5px #0c410749;
+      border: 1px solid #fece00;
+      text-transform: uppercase;
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: #fff;
+        color: #179ea1;
+        transition: all 0.2s;
+        border: 1px solid #179ea1;
       }
     }
   }

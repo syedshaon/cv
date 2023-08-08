@@ -108,7 +108,7 @@ function App() {
 
   const [education, setEducation] = useState([
     {
-      schoolName: "University of Georgia 1",
+      schoolName: "University of Georgia",
       degree: "Bachelor of Science in Computer Science",
       gpa: "3.8 out of 4",
       startDate: "August 2019",
@@ -119,46 +119,46 @@ function App() {
       expand: false,
     },
     {
-      schoolName: "Udemy University 2",
-      degree: "Full-Stack Web Development",
-      gpa: "3.8 out of 4",
-      startDate: "January 2022",
-      endDate: "June 2022",
-      location: "San Francisco, USA",
-      additionalInfo: "Completed an intensive bootcamp focused on modern web development technologies. ; Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos illo, quam in quidem amet eligendi!",
-      visible: true,
-      expand: false,
-    },
-    {
-      schoolName: "Example University 3",
-      degree: "Full-Stack Web Development",
-      gpa: "3.8 out of 4",
-      startDate: "January 2022",
-      endDate: "June 2022",
-      location: "San Francisco, USA",
-      additionalInfo: "Completed an intensive bootcamp focused on modern web development technologies.",
+      schoolName: "",
+      degree: "",
+      gpa: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      additionalInfo: "",
       visible: false,
       expand: false,
     },
     {
-      schoolName: "Example University 4",
-      degree: "Full-Stack Web Development",
-      gpa: "3.8 out of 4",
-      startDate: "January 2022",
-      endDate: "June 2022",
-      location: "San Francisco, USA",
-      additionalInfo: "Completed an intensive bootcamp focused on modern web development technologies.",
+      schoolName: "",
+      degree: "",
+      gpa: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      additionalInfo: "",
       visible: false,
       expand: false,
     },
     {
-      schoolName: "Example University 5",
-      degree: "Full-Stack Web Development",
-      gpa: "3.8 out of 4",
-      startDate: "January 2022",
-      endDate: "June 2022",
-      location: "San Francisco, USA",
-      additionalInfo: "Completed an intensive bootcamp focused on modern web development technologies.",
+      schoolName: "",
+      degree: "",
+      gpa: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      additionalInfo: "",
+      visible: false,
+      expand: false,
+    },
+    {
+      schoolName: "",
+      degree: "",
+      gpa: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      additionalInfo: "",
       visible: false,
       expand: false,
     },
@@ -217,43 +217,43 @@ function App() {
       expand: false,
     },
     {
-      companyName: "Wayne Corp",
-      jobTitle: "Junior Developer",
-      startDate: "March 2018",
-      endDate: "May 2019",
-      location: "San Francisco, USA",
-      additionalInfo: "Collaborated with senior developers to build and maintain client websites using the latest web technologies.",
-      visible: true,
+      companyName: "",
+      jobTitle: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      additionalInfo: "",
+      visible: false,
       expand: false,
     },
 
     {
-      companyName: "Stark Corp",
-      jobTitle: "Software Engineer",
-      startDate: "June 2019",
-      endDate: "Present",
-      location: "San Francisco, USA",
-      additionalInfo: "Lead a team of developers in designing and implementing new features for the company's flagship product.",
+      companyName: "",
+      jobTitle: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      additionalInfo: "",
       visible: false,
       expand: false,
     },
     {
-      companyName: "Stark Corp",
-      jobTitle: "Software Engineer",
-      startDate: "June 2019",
-      endDate: "Present",
-      location: "San Francisco, USA",
-      additionalInfo: "Lead a team of developers in designing and implementing new features for the company's flagship product.",
+      companyName: "",
+      jobTitle: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      additionalInfo: "",
       visible: false,
       expand: false,
     },
     {
-      companyName: "Stark Corp",
-      jobTitle: "Software Engineer",
-      startDate: "June 2019",
-      endDate: "Present",
-      location: "San Francisco, USA",
-      additionalInfo: "Lead a team of developers in designing and implementing new features for the company's flagship product.",
+      companyName: "",
+      jobTitle: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      additionalInfo: "",
       visible: false,
       expand: false,
     },
@@ -306,10 +306,10 @@ function App() {
       expand: false,
     },
     {
-      referer: "Bruce Wayne",
-      title: "CEO Wayne Corp.",
-      phone: "+1 123-333-5555",
-      visible: true,
+      referer: "",
+      title: "",
+      phone: "",
+      visible: false,
       expand: false,
     },
   ]);
@@ -342,7 +342,7 @@ function App() {
   };
 
   const [skills, setskills] = useState({
-    list: "ES6+ features; Async/Await; DOM manipulation; React",
+    list: "skills 1; skills 2; skills 3; skills 4",
     visible: true,
     expand: false,
   });
@@ -370,7 +370,7 @@ function App() {
     {
       title: "Hobbies",
       summary: "Playing guitar ; Reading ; Cooking",
-      visible: true,
+      visible: false,
       expand: false,
     },
   ]);
@@ -519,20 +519,57 @@ function App() {
     setLeftVal(false);
   }
 
+  function LoadSample() {
+    setEducation([
+      { schoolName: "University of Georgia 1", degree: "Bachelor of Science in Computer Science", gpa: "3.8 out of 4", startDate: "August 2019", endDate: "May 2023", location: "Cityville, State", additionalInfo: "Honors: Dean's List for four consecutive semesters. ; Ldipisicing elit. Id iure animi optio praesentium, voluptatem nisi", visible: !0, expand: !1 },
+      { schoolName: "Udemy University 2", degree: "Full-Stack Web Development", gpa: "3.8 out of 4", startDate: "January 2022", endDate: "June 2022", location: "San Francisco, USA", additionalInfo: "Completed an intensive bootcamp focused on modern web development technologies. ; Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos illo, quam in quidem amet eligendi!", visible: !0, expand: !1 },
+      { schoolName: "Example University 3", degree: "Full-Stack Web Development", gpa: "3.8 out of 4", startDate: "January 2022", endDate: "June 2022", location: "San Francisco, USA", additionalInfo: "Completed an intensive bootcamp focused on modern web development technologies.", visible: !1, expand: !1 },
+      { schoolName: "Example University 4", degree: "Full-Stack Web Development", gpa: "3.8 out of 4", startDate: "January 2022", endDate: "June 2022", location: "San Francisco, USA", additionalInfo: "Completed an intensive bootcamp focused on modern web development technologies.", visible: !1, expand: !1 },
+      { schoolName: "Example University 5", degree: "Full-Stack Web Development", gpa: "3.8 out of 4", startDate: "January 2022", endDate: "June 2022", location: "San Francisco, USA", additionalInfo: "Completed an intensive bootcamp focused on modern web development technologies.", visible: !1, expand: !1 },
+    ]),
+      setExperience([
+        { companyName: "Stark Corp", jobTitle: "Software Engineer", startDate: "June 2019", endDate: "Present", location: "San Francisco, USA", additionalInfo: "Lead a team of developers in designing and implementing new features for the company's flagship product.", visible: !0, expand: !1 },
+        { companyName: "Wayne Corp", jobTitle: "Junior Developer", startDate: "March 2018", endDate: "May 2019", location: "San Francisco, USA", additionalInfo: "Collaborated with senior developers to build and maintain client websites using the latest web technologies.", visible: !0, expand: !1 },
+        { companyName: "Stark Corp", jobTitle: "Software Engineer", startDate: "June 2019", endDate: "Present", location: "San Francisco, USA", additionalInfo: "Lead a team of developers in designing and implementing new features for the company's flagship product.", visible: !1, expand: !1 },
+        { companyName: "Stark Corp", jobTitle: "Software Engineer", startDate: "June 2019", endDate: "Present", location: "San Francisco, USA", additionalInfo: "Lead a team of developers in designing and implementing new features for the company's flagship product.", visible: !1, expand: !1 },
+        { companyName: "Stark Corp", jobTitle: "Software Engineer", startDate: "June 2019", endDate: "Present", location: "San Francisco, USA", additionalInfo: "Lead a team of developers in designing and implementing new features for the company's flagship product.", visible: !1, expand: !1 },
+      ]),
+      setReferences([
+        { referer: "Tony Stark", title: "CEO Stark Corp.", phone: "+1 123-666-7777", visible: !0, expand: !1 },
+        { referer: "Bruce Wayne", title: "CEO Wayne Corp.", phone: "+1 123-333-5555", visible: !0, expand: !1 },
+      ]),
+      setskills({ list: "ES6+ features; Async/Await; DOM manipulation; React", visible: !0, expand: !1 }),
+      setHColor("#179EA1"),
+      setCColor("#179EA1"),
+      setSColor("#08AFAF"),
+      setFColor("#ffffff"),
+      setIColor("#FECE00");
+    document.documentElement.style.setProperty("--icon", "#FECE00");
+  }
+
   return (
     <div className="cv-parent">
       <div className="cv-create">
         <h1 className="builder">CV Builder</h1>
-        <nav className="control">
-          <button onClick={Edit} className="btn">
-            <FaEdit /> Edit
-          </button>
-          <button onClick={Personalize} className="btn">
-            <FaMagic /> Customize
-          </button>
-          <button className="btn" id="savePDF" onClick={savePDF}>
-            <FaFilePdf /> Print
-          </button>
+        <nav>
+          <div className="control">
+            <button onClick={Edit} className="btn">
+              <FaEdit /> Edit
+            </button>
+            <button onClick={Personalize} className="btn">
+              <FaMagic /> Customize
+            </button>
+
+            <button className="btn" id="savePDF" onClick={savePDF}>
+              <FaFilePdf /> Print
+            </button>
+          </div>
+          <div className="control">
+            <button className="btn" id="loadSample" onClick={LoadSample}>
+              <FaCloudDownloadAlt /> Load Sample
+            </button>
+          </div>
+
           {/* <button className="btn">
             <FaEraser /> Erase
           </button>
