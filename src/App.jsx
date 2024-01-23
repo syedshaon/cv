@@ -61,14 +61,14 @@ function App() {
   //  ##################################################################
   // #####################################################################
   const [person, setPerson] = useState({
-    name: "Mashiur Rahman",
-    title: "Front-End Developer",
+    name: "Syed Mashiur Rahman",
+    title: "Freelance Front-End Developer",
     bio: "I'm a passionate developer with a love for coding.",
     img: imgURL,
     showImg: true,
-    email: "john.doe@example.com",
-    phone: "+88 01715-555555",
-    website: "https://johndoe.com",
+    email: "syedshaon99@gmail.com",
+    phone: "+88 01715-143957",
+    website: "https://mashi-zone.com",
     address: "Faridpur, BD",
     expand: false,
   });
@@ -108,25 +108,25 @@ function App() {
 
   const [education, setEducation] = useState([
     {
-      schoolName: "University of Georgia",
-      degree: "Bachelor of Science in Computer Science",
-      gpa: "3.8 out of 4",
-      startDate: "August 2019",
-      endDate: "May 2023",
-      location: "Cityville, State",
-      additionalInfo: "Honors: Dean's List for four consecutive semesters. ; Ldipisicing elit. Id iure animi optio praesentium, voluptatem nisi",
+      schoolName: "IDB-BISEW Scholarship",
+      degree: "Diploma in Enterprise System Analysis & System Design With C#",
+      gpa: "",
+      startDate: "Jan 2017",
+      endDate: "Jun 2018",
+      location: "Dhaka, BD",
+      additionalInfo: "Best Student Award!",
       visible: true,
       expand: false,
     },
     {
-      schoolName: "",
-      degree: "",
+      schoolName: "United International University",
+      degree: "BBA in Finance",
       gpa: "",
-      startDate: "",
-      endDate: "",
-      location: "",
+      startDate: "May 2008",
+      endDate: "Dec 2012",
+      location: "Dhaka, BD",
       additionalInfo: "",
-      visible: false,
+      visible: true,
       expand: false,
     },
     {
@@ -207,36 +207,36 @@ function App() {
 
   const [experience, setExperience] = useState([
     {
-      companyName: "Stark Corp",
-      jobTitle: "Software Engineer",
-      startDate: "June 2019",
+      companyName: "Career Break",
+      jobTitle: "",
+      startDate: "Oct 2022",
       endDate: "Present",
-      location: "San Francisco, USA",
-      additionalInfo: "Lead a team of developers in designing and implementing new features for the company's flagship product.",
+      location: "",
+      additionalInfo: "Learning MERN Stack development. ; Passing time with family.",
       visible: true,
       expand: false,
     },
     {
-      companyName: "",
-      jobTitle: "",
-      startDate: "",
-      endDate: "",
+      companyName: "Freelance",
+      jobTitle: "Front-End Developer",
+      startDate: "July 2018",
+      endDate: "Sep 2022",
       location: "",
-      additionalInfo: "",
-      visible: false,
+      additionalInfo: "Helping users with creating custom WordPress themes and setting up WordPress sites. ; PSD to HTML5, PSD to WordPress. ; WordPress Site Development & Maintenance. ; WordPress Theme and Plugin Development & Customization. ; Website Domain, Hosting, cPanel, SEO. ",
+      visible: true,
+      expand: false,
+    },
+    {
+      companyName: "WordPress.com(Automattic)",
+      jobTitle: "Happiness Contractor(Customer Support Agent)",
+      startDate: "Jun 2020",
+      endDate: "Sep 2022",
+      location: "",
+      additionalInfo: "Helped WordPress.com users through email support(Zendesk).; Worked for WooCommerce Forum support through WordPress.org.",
+      visible: true,
       expand: false,
     },
 
-    {
-      companyName: "",
-      jobTitle: "",
-      startDate: "",
-      endDate: "",
-      location: "",
-      additionalInfo: "",
-      visible: false,
-      expand: false,
-    },
     {
       companyName: "",
       jobTitle: "",
@@ -302,7 +302,7 @@ function App() {
       referer: "Tony Stark",
       title: "CEO Stark Corp.",
       phone: "+1 123-666-7777",
-      visible: true,
+      visible: false,
       expand: false,
     },
     {
@@ -342,7 +342,7 @@ function App() {
   };
 
   const [skills, setskills] = useState({
-    list: "skills 1; skills 2; skills 3; skills 4",
+    list: "JavaScript; ReactJS;  MERN; SCSS; TailWindCSS; Redux",
     visible: true,
     expand: false,
   });
@@ -363,14 +363,14 @@ function App() {
   const [inf, setInf] = useState([
     {
       title: "Languages",
-      summary: "English ; Spanish ; French",
+      summary: "English ; Bengali ; Hindi",
       visible: true,
       expand: false,
     },
     {
       title: "Hobbies",
-      summary: "Playing guitar ; Reading ; Cooking",
-      visible: false,
+      summary: "Biking ; Watching Movies ",
+      visible: true,
       expand: false,
     },
   ]);
@@ -419,7 +419,7 @@ function App() {
   const [hColor, setHColor] = useState("#ffffff");
   const [cColor, setCColor] = useState("#ffffff");
   const [sColor, setSColor] = useState("#ffffff");
-  const [fColor, setFColor] = useState("#000000");
+  const [fColor, setFColor] = useState("#004b4d");
 
   function setContentColor(e) {
     setCColor(e.target.value);
@@ -428,7 +428,7 @@ function App() {
 
   // document.documentElement.style.setProperty("--icon", "red");
 
-  const [iColor, setIColor] = useState("#640707");
+  const [iColor, setIColor] = useState("#004b4d");
   function handleIColor(e) {
     setIColor(e.target.value);
     document.documentElement.style.setProperty("--icon", e.target.value);
@@ -521,24 +521,24 @@ function App() {
 
   function LoadSample() {
     setEducation([
-      { schoolName: "University of Georgia 1", degree: "Bachelor of Science in Computer Science", gpa: "3.8 out of 4", startDate: "August 2019", endDate: "May 2023", location: "Cityville, State", additionalInfo: "Honors: Dean's List for four consecutive semesters. ; Ldipisicing elit. Id iure animi optio praesentium, voluptatem nisi", visible: !0, expand: !1 },
-      { schoolName: "Udemy University 2", degree: "Full-Stack Web Development", gpa: "3.8 out of 4", startDate: "January 2022", endDate: "June 2022", location: "San Francisco, USA", additionalInfo: "Completed an intensive bootcamp focused on modern web development technologies. ; Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos illo, quam in quidem amet eligendi!", visible: !0, expand: !1 },
+      { schoolName: "IDB-BISEW Scholarship", degree: "Diploma in Enterprise System Analysis & System Design With C#", gpa: "", startDate: "Jan 2017", endDate: "Jun 2018", location: "Dhaka, BD", additionalInfo: "Best Student Award!", visible: !0, expand: !1 },
+      { schoolName: "United International University", degree: "BBA in Finance", gpa: "", startDate: "May 2008", endDate: "Dec 2012", location: "Dhaka, BD", additionalInfo: "", visible: !0, expand: !1 },
       { schoolName: "Example University 3", degree: "Full-Stack Web Development", gpa: "3.8 out of 4", startDate: "January 2022", endDate: "June 2022", location: "San Francisco, USA", additionalInfo: "Completed an intensive bootcamp focused on modern web development technologies.", visible: !1, expand: !1 },
       { schoolName: "Example University 4", degree: "Full-Stack Web Development", gpa: "3.8 out of 4", startDate: "January 2022", endDate: "June 2022", location: "San Francisco, USA", additionalInfo: "Completed an intensive bootcamp focused on modern web development technologies.", visible: !1, expand: !1 },
       { schoolName: "Example University 5", degree: "Full-Stack Web Development", gpa: "3.8 out of 4", startDate: "January 2022", endDate: "June 2022", location: "San Francisco, USA", additionalInfo: "Completed an intensive bootcamp focused on modern web development technologies.", visible: !1, expand: !1 },
     ]),
       setExperience([
-        { companyName: "Stark Corp", jobTitle: "Software Engineer", startDate: "June 2019", endDate: "Present", location: "San Francisco, USA", additionalInfo: "Lead a team of developers in designing and implementing new features for the company's flagship product.", visible: !0, expand: !1 },
-        { companyName: "Wayne Corp", jobTitle: "Junior Developer", startDate: "March 2018", endDate: "May 2019", location: "San Francisco, USA", additionalInfo: "Collaborated with senior developers to build and maintain client websites using the latest web technologies.", visible: !0, expand: !1 },
-        { companyName: "Stark Corp", jobTitle: "Software Engineer", startDate: "June 2019", endDate: "Present", location: "San Francisco, USA", additionalInfo: "Lead a team of developers in designing and implementing new features for the company's flagship product.", visible: !1, expand: !1 },
+        { companyName: "Career Break", jobTitle: "", startDate: "Oct 2022", endDate: "Present", location: "San Francisco, USA", additionalInfo: "Learning MERN Stack development. ; Passing time with family.", visible: !0, expand: !1 },
+        { companyName: "Freelance", jobTitle: "Front-End Developer", startDate: "July 2018", endDate: "Sep 2022", location: "San Francisco, USA", additionalInfo: "Helping users with creating custom WordPress themes and setting up WordPress sites. ; PSD to HTML5, PSD to WordPress. ; WordPress Site Development & Maintenance. ; WordPress Theme and Plugin Development & Customization. ; Website Domain, Hosting, cPanel, SEO.", visible: !0, expand: !1 },
+        { companyName: "WordPress.com(Automattic)", jobTitle: "Happiness Contractor(Customer Support Agent)", startDate: "Jun 2020", endDate: "Sep 2022", location: "", additionalInfo: "Helped WordPress.com users through email support(Zendesk).; Worked for WooCommerce Forum support through WordPress.org.", visible: !0, expand: !1 },
         { companyName: "Stark Corp", jobTitle: "Software Engineer", startDate: "June 2019", endDate: "Present", location: "San Francisco, USA", additionalInfo: "Lead a team of developers in designing and implementing new features for the company's flagship product.", visible: !1, expand: !1 },
         { companyName: "Stark Corp", jobTitle: "Software Engineer", startDate: "June 2019", endDate: "Present", location: "San Francisco, USA", additionalInfo: "Lead a team of developers in designing and implementing new features for the company's flagship product.", visible: !1, expand: !1 },
       ]),
       setReferences([
-        { referer: "Tony Stark", title: "CEO Stark Corp.", phone: "+1 123-666-7777", visible: !0, expand: !1 },
-        { referer: "Bruce Wayne", title: "CEO Wayne Corp.", phone: "+1 123-333-5555", visible: !0, expand: !1 },
+        { referer: "Tony Stark", title: "CEO Stark Corp.", phone: "+1 123-666-7777", visible: !1, expand: !1 },
+        { referer: "Bruce Wayne", title: "CEO Wayne Corp.", phone: "+1 123-333-5555", visible: !1, expand: !1 },
       ]),
-      setskills({ list: "ES6+ features; Async/Await; DOM manipulation; React", visible: !0, expand: !1 }),
+      setskills({ list: "JavaScript; ReactJS;  MERN; SCSS; TailWindCSS; Redux", visible: !0, expand: !1 }),
       setHColor("#179EA1"),
       setCColor("#179EA1"),
       setSColor("#08AFAF"),
@@ -637,17 +637,6 @@ function App() {
           </div>
           <div className="edit-area" style={{ display: showEdit ? "block" : "none" }}>
             <Personal person={person} handleChange={handlePersonalChange} />
-            <div className=" education list-item">
-              <h3 className="title">Education</h3>
-              <Education degree={education[0]} number={"#01:"} serial={0} handleChange={handleEduChange} />
-              <Education degree={education[1]} number={"#02:"} serial={1} handleChange={handleEduChange} />
-              <Education degree={education[2]} number={"#03:"} serial={2} handleChange={handleEduChange} />
-              <Education degree={education[3]} number={"#04:"} serial={3} handleChange={handleEduChange} />
-              <Education degree={education[4]} number={"#05:"} serial={4} handleChange={handleEduChange} />
-              <button className="btn addField" onClick={addEduField}>
-                Add Another Degree
-              </button>
-            </div>
 
             <div className="experience list-item">
               <h3 className="title">Experiences</h3>
@@ -661,6 +650,19 @@ function App() {
                 Add Another Experience
               </button>
             </div>
+
+            <div className=" education list-item">
+              <h3 className="title">Education</h3>
+              <Education degree={education[0]} number={"#01:"} serial={0} handleChange={handleEduChange} />
+              <Education degree={education[1]} number={"#02:"} serial={1} handleChange={handleEduChange} />
+              <Education degree={education[2]} number={"#03:"} serial={2} handleChange={handleEduChange} />
+              <Education degree={education[3]} number={"#04:"} serial={3} handleChange={handleEduChange} />
+              <Education degree={education[4]} number={"#05:"} serial={4} handleChange={handleEduChange} />
+              <button className="btn addField" onClick={addEduField}>
+                Add Another Degree
+              </button>
+            </div>
+
             <div className="reference list-item">
               <h3 className="title">References</h3>
               <Reference reff={references[0]} number={"#01:"} serial={0} handleChange={handleReferences} />
@@ -685,6 +687,15 @@ function App() {
         <div className={`cv-show ${noSkill} ${imgShow} ${leftSkill} ${allLeftVal && "allLeft"}`} id="printableArea">
           <Info person={person} hColor={hColor} />
           <div className="cv-child eduEx-wrapper" style={{ backgroundColor: `${cColor}` }}>
+            <div className="eduEx experience" style={{ display: experience[0].visible || experience[1].visible || experience[2].visible || experience[3].visible || experience[4].visible ? "block" : "none" }}>
+              <h2 className="title">Experience</h2>
+              {experience[0].visible && <ShowExperience exp={experience[0]} />}
+              {experience[1].visible && <ShowExperience exp={experience[1]} />}
+              {experience[2].visible && <ShowExperience exp={experience[2]} />}
+              {experience[3].visible && <ShowExperience exp={experience[3]} />}
+              {experience[4].visible && <ShowExperience exp={experience[4]} />}
+            </div>
+
             <div className="eduEx education" style={{ display: education[0].visible || education[1].visible || education[2].visible || education[3].visible || education[4].visible ? "block" : "none" }}>
               <h2 className="title">Education</h2>
               {education[0].visible && <ShowEducation degree={education[0]} />}
@@ -694,14 +705,6 @@ function App() {
               {education[4].visible && <ShowEducation degree={education[4]} />}
             </div>
 
-            <div className="eduEx experience" style={{ display: experience[0].visible || experience[1].visible || experience[2].visible || experience[3].visible || experience[4].visible ? "block" : "none" }}>
-              <h2 className="title">Experience</h2>
-              {experience[0].visible && <ShowExperience exp={experience[0]} />}
-              {experience[1].visible && <ShowExperience exp={experience[1]} />}
-              {experience[2].visible && <ShowExperience exp={experience[2]} />}
-              {experience[3].visible && <ShowExperience exp={experience[3]} />}
-              {experience[4].visible && <ShowExperience exp={experience[4]} />}
-            </div>
             <div className="eduEx references" style={{ display: references[0].visible || references[1].visible ? "block" : "none" }}>
               <h2 className="title">References</h2>
               <div className="eduEx-list eduEx-list-top">

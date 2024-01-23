@@ -37,7 +37,9 @@ export function Info({ person, hColor }) {
         </p>
         <p className="person-web">
           {person.website && <FaGlobeAmericas />}
-          <a href={`${person.website}`}>{person.website}</a>
+          <a target="_blank" href={`${person.website}`}>
+            {person.website}
+          </a>
         </p>
         <p className="person-address">
           {person.address && <FaHome />}

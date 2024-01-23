@@ -4,7 +4,7 @@ export function ShowEducation({ degree }) {
       <div className="eduEx-list-top">
         <div className="title-sub">
           <h3 className="title">{degree.schoolName}</h3>
-          <em>{degree.gpa}</em>
+          <em>{degree.degree}</em>
         </div>
         <div className="year-loc">
           <p className="year">
@@ -14,12 +14,13 @@ export function ShowEducation({ degree }) {
         </div>
       </div>
 
-      <em className="result">Result: {degree.schoolName}</em>
+      {degree.gpa && <em className="result">Result: {degree.gpa}</em>}
       <ul className="summary">
         {/* Summary separated with semicolor(;) are converted to a list(<li></li>) */}
-        {degree.additionalInfo.split(";").map((element, i) => {
-          return <li key={i}>{element}</li>;
-        })}
+        {degree.additionalInfo &&
+          degree.additionalInfo.split(";").map((element, i) => {
+            return <li key={i}>{element}</li>;
+          })}
       </ul>
     </div>
   );
