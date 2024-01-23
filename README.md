@@ -2,7 +2,7 @@
 
 Done for the fulfillment of this Odin Project Lesson. -> https://www.theodinproject.com/lessons/node-path-react-new-cv-application
 
-### Live Site: https://cv-builder-k6wz.onrender.com/
+### Live Site: https://cv-maker-beige.vercel.app/
 
 ## Tools Used:
 
